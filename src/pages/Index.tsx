@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('home');
   const [playerId, setPlayerId] = useState('');
 
@@ -56,9 +58,12 @@ const Index = () => {
                 Тарифы
               </button>
             </nav>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button 
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={() => navigate('/dashboard')}
+            >
               <Icon name="User" size={18} className="mr-2" />
-              Войти
+              Личный кабинет
             </Button>
           </div>
         </div>
